@@ -1,0 +1,419 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+
+<div id="modalNuevoProfesor" class="modal fade" data-backdrop="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+     
+      <div class="modal-header text-center">
+        <h5 class="modal-title">Agregar nuevo profesor</h5>
+       
+      </div>
+      <div class="modal-body  p-lg">
+       
+          	<div class="box-body">
+	          <form id="frmProfesor" name="frmProfesor" action="javascript:guardarProfesor()">
+	          	<div class="form-row">
+	          		<div class="form-group col-md-6">
+		              <label for="txtNombreProfesor" class="col-form-label">Nombre:</label>
+		              <input type="text" class="form-control" id="txtNombreProfesor" placeholder="Nombre del profesor" name="txtNombreProfesor" required>
+		            </div>
+		            <div class="form-group col-md-6">
+		              <label for="txtTelefono" class="col-form-label">Teléfono:</label>
+		              <input type="text" class="form-control" id="txtTelefono" placeholder="Teléfono" name="txtTelefono">
+		            </div>	
+	          	</div>
+		          <div class="row" style="justify-content: right;">
+		            <button type="submit" class="btn primary" style="text-align: center;" id="btnGuardarProfesor">Guardar</button>  
+		          </div>
+		          <input type="hidden" value="0" id="idReg" name="idReg">  
+	          </form>
+
+	          <br>
+	          <div class="table-responsive">
+	          	<table class="table v-middle p-0 m-0 box" id="tblProfesores">
+		            <thead>
+		              <tr>
+		                <th>id</th>
+		                <th>Nombre</th>
+		                <th>Teléfono</th>
+		                <th>Acción</th>
+		              </tr>
+		            </thead>
+		            <tbody></tbody>
+	          	</table>
+	          </div>
+	          
+	          
+	        </div>
+       		
+        
+      </div>
+      <div class="modal-footer" >
+       	 <button type="button" class="btn danger p-x-md" data-dismiss="modal" id="btnCerrarModalProfesores">Cerrar</button>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<div class="padding">
+	
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-8">
+			<div class="box">
+				<div class="box-header row">
+					<div class="col-sm-9 col-md-9 col-lg-9">
+						Módulo de pago a profesores	
+					</div>
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<button class='md-btn md-raised indigo' id="btnNuevoProfesor">Nuevo profesor</button>
+					</div>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="form-inline " data-plugin="datetimepicker">
+		                <label  class="col-sm-1 col-form-label">Semana:</label>
+		                <div class="col-sm-4 col-lg-4">
+		                  <input type="date" class="form-control datetimepicker-input js-datetimepicker" id="fecha_inicial" placeholder="De:" autocomplete="off">
+		                </div>
+		                <div class="col-sm-4 col-lg-4">
+		                	<input type="date" class="form-control datetimepicker-input js-datetimepicker" id="fecha_final"  placeholder="A:" autocomplete="off">
+		                </div>
+		                <!-- <div class="col-sm-1">
+		                	<button class='md-btn md-raised blue buscarAcademia'><i class='fa fa-search'></i></button>
+		                </div> -->
+		            </div>
+		            <div class="form-inline mt-2">
+		                <label  class="col-sm-1 col-form-label">Profesor:</label>
+		                <div class="col-sm-4 col-md-4 col-lg-4">
+		                	<select class="form-control" id="optProfesor" name="optProfesor" required>
+			                    <option value="">Seleccione...</option>
+			                </select>
+		                </div>
+		                <div class="col-sm-1">
+		                	<button class='md-btn md-raised blue buscarNominaProfesor'><i class='fa fa-search'></i></button>
+		                </div>
+		            </div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<div class="box">
+				<div class="box-header primary">
+					Pago estimado a profesor:
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body" style="height: 120px">
+					<h1 id="nomina_profesor" class="text-center mt-3">0.00</h1>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-3">
+			<div class="box">
+				<div class="box-header primary">
+					Clases particulares: <span class="badge warning" title="Total de clases" id="totalClasesParticular"></span>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="streamline streamline-xs streamline-dotted" id="ListaParticular">
+
+        			</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-md-12 col-lg-3">
+			<div class="box">
+				<div class="box-header accent">
+					Clases grupales: <span class="badge warning" title="Total de clases" id="totalClasesGrupal"></span>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="streamline streamline-xs streamline-dotted" id="ListaGrupal">
+
+        			</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-md-12 col-lg-3">
+			<div class="box">
+				<div class="box-header indigo">
+					Clases academia: <span class="badge warning" title="Total de clases" id="totalClasesAcademia"></span>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="streamline streamline-xs streamline-dotted" id="ListaAcademia">
+
+        			</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-md-12 col-lg-3">
+			<div class="box">
+				<div class="box-header deep-orange">
+					Clases academia por día: <span class="badge warning" title="Total de clases" id="totalClasesAcademiaDia"></span>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="streamline streamline-xs streamline-dotted" id="ListaAcademiaDia">
+
+        	</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- <div class="table-responsive">
+	<div class="row">
+		<div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+			<div class="box">
+				<div class="row box-header primary" style="margin: auto;">
+					<h2 class="col-sm-8">Listado Academia</h2>
+					
+				</div>
+				<br>
+			
+			      <div class="form-inline centrarForm" data-plugin="datetimepicker">
+	                <label  class="col-sm-1 col-form-label">Periodo:</label>
+	                <div class="col-sm-2">
+	                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="date_from" data-toggle="datetimepicker" data-target="#date_from" name="date_from" placeholder="De:">
+	                </div>
+	                <div class="col-sm-2">
+	                	<input type="text" class="form-control datetimepicker-input js-datetimepicker" id="date_to" data-toggle="datetimepicker" data-target="#date_to" name="date_to" placeholder="A:">
+	                </div>
+	                <div class="col-sm-2">
+	                	<button class='md-btn md-raised blue buscarAcademia'><i class='fa fa-search'></i></button>
+	                </div>
+	              </div>
+			    <br>
+				
+
+				<div class="box-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table v-middle p-0 m-0 box" id="tblReservacionesAcademia" data-plugin="admin_agendaaa">
+					            <thead>
+					              <tr>
+					              	<th></th>
+					                <th>id</ht>
+					                <th>Estatus</th>
+					                <th>Fecha Ins</th>
+					                <th>Cliente</th>
+					                <th>Teléfono</th>
+					                <th>Nivel</th>
+					                <th>Grupo</th>
+					                <th>Fecha reservación</th>
+					                <th>Fecha siguiente pago</th>
+					                <th>Tipo pago</th>
+					                <th>Costo</th>
+					              </tr>
+					            </thead>
+					            <tbody></tbody>
+				          </table>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+	</div> -->
+</div>
+
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+	<!-- <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script> -->
+
+
+  <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<!-- jQuery -->
+  <!-- <script src="../libs/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+  <!-- <script src="../libs/popper.js/dist/umd/popper.min.js"></script> -->
+  <!-- <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- core -->
+  <!-- <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script>  -->
+  
+  <script src="scripts/app.js"></script>
+  <!-- <script src="scripts/plugins/datetimepicker.js"></script> -->
+<!-- endbuild -->
+
+<!-- <script src="scripts/js/admin_listadoAcademia.js"></script> -->
+<!-- <script src="scripts/js/admin_nuevaAgenda.js"></script>-->
+<script src="scripts/js/admin_nuevoProfesor.js"></script>
+<script src="scripts/js/admin_calculaNominaProfesor.js"></script> 
+
+<script type="text/javascript">
+	//buscamos los datos de la reservacion seleccionada para modificar algun dato...
+	// function verReservacion(IdReg){
+	// 	console.log("entro verReservacion")
+		
+
+	// 	if (IdReg > 0) {
+		 
+	// 	    $.ajax({
+	// 	       url:"scripts/asp/admin_capturarAgenda.asp",
+	// 	       method: "POST",
+	// 	       cache: false,
+	// 	       data: {idReg:IdReg,comm:'verReservacion'},
+	// 	       dataType: "json"
+	// 	   }).done(function(rest){
+		      
+	// 	      $.each(rest.data, function (i, item) {
+		      
+	// 	        if(item.ok == 'ok'){
+	// 	          console.log("ok")
+	// 	          $("#divClasesAcademia").hide()
+	// 	          $("#divDatosAcademia").hide()
+	// 	          $("#idReg").val(item.id)
+	// 	          $("#txtNombreCliente").val(item.nombre_cliente)
+	// 	          $("#txtTelefono").val(item.telefono)
+	// 	          $("#optTipoServicio").val(item.tipo_servicio)
+		                  
+	// 	          $("#optProfesor").val(item.profesor_asignado)
+	// 	          $("#optNumPersonas").val(item.numero_personas)
+	// 	          $("#optCanchaAsignada1").val(item.cancha_asignada)
+	// 	          $("#txtFechaReservaC1").val(item.fecha_renta)
+	// 	          $("#txthorarioInicioC1").val(item.hora_inicio)
+	// 	          $("#txthorarioFinC1").val(item.hora_fin)
+
+	// 	          $("#txtPrecioFinalTipoServicio").text(item.precio_renta)
+
+
+	// 	          if (item.tipo_servicio == 3) { //TIPO ACADEMIA
+	// 	            $("#divDatosAcademia").show()
+	// 	            $("#divClasesAcademia").show()
+	// 	            $("#txtNivel").val(item.nivel_academia)
+	// 	            $("#txtGrupoAsignado").val(item.grupo_asignado)
+	// 	            $("#txtfechaInscrpcion").val(item.fecha_inscripcion)
+	// 	            $("#optTipoPago").val(item.tipo_pago_academia)
+	// 	            $("#txtUltimaFechadePago").val(item.ultima_fecha_pago)
+	// 	            $("#optEstatus").val(item.estatus_academia)
+	// 	            $("#optCanchaAsignada2").val(item.cancha_asignada2)
+	// 	            $("#txtFechaReservaC2").val(item.fecha_reservaC2)
+	// 	            $("#txthorarioInicioC2").val(item.hora_inicioC2)
+	// 	            $("#txthorarioFinC2").val(item.hora_finC2)
+
+	// 	            $("#optCanchaAsignada3").val(item.cancha_asignada3)
+	// 	            $("#txtFechaReservaC3").val(item.fecha_reservaC3)
+	// 	            $("#txthorarioInicioC3").val(item.hora_inicioC3)
+	// 	            $("#txthorarioFinC3").val(item.hora_finC3)
+
+	// 	            $("#optCanchaAsignada4").val(item.cancha_asignada4)
+	// 	            $("#txtFechaReservaC4").val(item.fecha_reservaC4)
+	// 	            $("#txthorarioInicioC4").val(item.hora_inicioC4)
+	// 	            $("#txthorarioFinC4").val(item.hora_finC4)
+
+	// 	            $("#optCanchaAsignada5").val(item.cancha_asignada5)
+	// 	            $("#txtFechaReservaC5").val(item.fecha_reservaC5)
+	// 	            $("#txthorarioInicioC5").val(item.hora_inicioC5)
+	// 	            $("#txthorarioFinC5").val(item.hora_finC5)
+
+	// 	            $("#optCanchaAsignada6").val(item.cancha_asignada6)
+	// 	            $("#txtFechaReservaC6").val(item.fecha_reservaC6)
+	// 	            $("#txthorarioInicioC6").val(item.hora_inicioC6)
+	// 	            $("#txthorarioFinC6").val(item.hora_finC6)
+
+	// 	            $("#optCanchaAsignada7").val(item.cancha_asignada7)
+	// 	            $("#txtFechaReservaC7").val(item.fecha_reservaC7)
+	// 	            $("#txthorarioInicioC7").val(item.hora_inicioC7)
+	// 	            $("#txthorarioFinC7").val(item.hora_finC7)
+
+	// 	            $("#optCanchaAsignada8").val(item.cancha_asignada8)
+	// 	            $("#txtFechaReservaC8").val(item.fecha_reservaC8)
+	// 	            $("#txthorarioInicioC8").val(item.hora_inicioC8)
+	// 	            $("#txthorarioFinC8").val(item.hora_finC8)
+	// 	          }
+		          	
+	// 	          $('#modalReservacion').modal({backdrop: 'static',keyboard: false})
+	// 			  $("#modalReservacion").modal("show")
+		          
+	// 	        }else{
+	// 	          alert("Ocurrio un problema, consulte al administrador del sistema")
+	// 	        } 
+	// 	      })
+	// 	    })
+	// 	 }
+
+		
+	// }
+
+	// var reservaciones ="" 
+	// function verAcademiaAgenda(idRegistro){
+	// 	reservaciones = ""
+	// 	$("#ListarReservacionesAcademia").html("")
+
+	// 	color = ["b-info","b-success", "b-primary", "b-info", "b-success"]
+
+	// 	$.ajax({
+	// 		url: "scripts/asp/admin_capturarAgenda.asp",
+	// 		cache:false,
+	// 		dataType:"json",
+	// 		data: {	comm: "buscarReservacionAcademia", 
+	// 				idReg: idRegistro
+	// 			},
+	// 		method: "POST"
+	// 	}).done(function(rest){
+	// 		 $.each(rest.data, function (i, item) {
+	// 		 	if (item.ok=="ok") {
+	// 		 		reservaciones  = reservaciones + '<div class="sl-item '+color[i]+' ">\
+	// 										              <div class="sl-content">\
+	// 										                <div class="sl-date text-muted">Clase no. '+item.clase+' - '+item.fecha_renta+'</div>\
+	// 										                <p>'+item.hora_inicio+' - '+item.hora_fin+'</p>\
+	// 										              </div>\
+	// 										            </div>'
+	// 		 	}else{
+	// 		 		reservaciones =  '<div class="sl-item'+color[i]+'">\
+	// 						              <div class="sl-content">\
+	// 						                <div class="sl-date text-muted">--------------</div>\
+	// 						                <p>SIN RESERVACIONES</p>\
+	// 						              </div>\
+	// 						            </div>'
+	// 		 	}	
+	// 		 })
+
+	// 		 $("#ListarReservacionesAcademia").html(reservaciones)
+	// 		 $("#modalReservacionAcademia").modal("show")
+
+
+	// 	}).fail(function(jqXHR,estado,error){
+	// 		console.log(estado);
+	// 		console.log(error);
+	// 	})
+		
+	// }
+
+
+	
+
+
+</script>
