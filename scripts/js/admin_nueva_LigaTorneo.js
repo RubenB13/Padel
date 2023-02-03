@@ -1,17 +1,17 @@
 
 
-
+buscaLigasyTorneos()
 
 function buscaLigasyTorneos(){
   fechaInicial = $("#date_from").val()
   fechaFin = $("#date_to").val()
   console.log(fechaInicial + "  -  " + fechaFin)
 
-    $('#tblIncidencias').dataTable({
+    $('#tblListadoLigas').dataTable({
     destroy: true,
     retrieve: true,
     responsive: true,
-    ajax: 'scripts/asp/admin_capturarAgenda.asp?com=listarAgenda&de='+fechaInicial+'&a='+fechaFin,
+    ajax: 'scripts/asp/admin_nueva_LigaTorneo.asp?com=listarTorneos&de='+fechaInicial+'&a='+fechaFin,
     processing: true,
     type: 'POST',
       "oLanguage": {
@@ -19,20 +19,9 @@ function buscaLigasyTorneos(){
   },
     columns: [
       { data: "id", visible: false},
-      { data: "fecha_renta"},
-      { data: "nombre_cliente"},
-      { data: "pagado"},
-      { data: "tipo_servicio"},
-      { data: "precio_renta"},
-      { data: "profesor"},
-      { data: "cancha_asignada"},
-      { data: "hora_inicio"},
-      { data: "hora_fin"},
-      {data:"numero_personas"},
-      { data: "eliminar"}
-      // { data: "clase"}
+      { data: "datos_torneo"}
     ],
-     order:[[1,"desc"]],
+     order:[[0,"desc"]],
   });
 }
 
@@ -69,9 +58,10 @@ $("#btnGuardarTorneo").click(function(e){
           alert("Se guardo correctamente")
           $("#divNuevoTorneo").hide()
           $("#divListadoTorneos").show()
+          $('#tblListadoLigas').DataTable().ajax.reload();
         }else if (item.ok =='ok1') {
           alert("Se actualizo correctamente")
-          // $('#tblIncidencias').DataTable().ajax.reload();
+          $('#tblListadoLigas').DataTable().ajax.reload();
           $("#divNuevoTorneo").hide()
           $("#divListadoTorneos").show()
         }
