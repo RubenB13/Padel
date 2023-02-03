@@ -1,0 +1,73 @@
+{
+    "data": [{
+            "id": "1",
+            "name": "Tiger Nixon",
+            "hr": {
+                "position": "System Architect",
+                "QR": "<button class=\"btn btn-sm btn-outline btn-rounded b-info text-info btnQR\">CrearQR<\/button>",
+                "start_date": "2011\/04\/25"
+              
+            },
+            "contact": [
+                "Edinburgh",
+                "5421"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Cedric Kelly",
+            "hr": {
+                "position": "Senior Javascript Developer",
+                "QR": "<button class=\"btn btn-sm btn-outline btn-rounded b-info text-info btnQR\">CrearQR<\/button>",
+                "start_date": "2012\/03\/29"
+                
+            },
+            "contact": [
+                "Edinburgh",
+                "6224"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Airi Satou",
+            "hr": {
+                "position": "Accountant",
+                "QR": "<button class=\"btn btn-sm btn-outline btn-rounded b-info text-info btnQR\">CrearQR<\/button>",
+                "start_date": "2008\/11\/28"
+                
+            },
+            "contact": [
+                "Tokyo",
+                "5407"
+            ]
+        },
+        {
+            "id": "4",
+            "name": "Brielle Williamson",
+            "hr": {
+                "position": "Integration Specialist",
+                "QR": "<button class=\"btn btn-sm btn-outline btn-rounded b-info text-info btnQR\">CrearQR<\/button>",
+                "start_date": "2012\/12\/02"
+                
+            },
+            "contact": [
+                "New York",
+                "4804"
+            ]
+        },
+        {
+            "id": "5",
+            "name": "Herrod Chandler",
+            "hr": {
+                "position": "Sales Assistant",
+                "QR": "<button class=\"btn btn-sm btn-outline btn-rounded b-info text-info btnQR\">CrearQR<\/button>",
+                "start_date": "2012\/08\/06"
+        
+            },
+            "contact": [
+                "San Francisco",
+                "9608"
+            ]
+        }
+    ]
+}
