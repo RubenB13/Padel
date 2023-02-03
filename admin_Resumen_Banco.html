@@ -1,0 +1,180 @@
+
+<div class="padding">
+	
+
+	<div class="table-responsive">
+	<div class="row">
+		<div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+			<div class="box">
+				
+				<div class="row box-header dark" style="margin: auto;">
+					<h2 class="col-sm-8">Resumen de Control de Banco</h2>
+				</div>
+				<br>
+			      <div class="form-inline centrarForm">
+	                <label  class="col-sm-12 col-md-12 col-lg-2 col-form-label"> Consulte por fecha:</label>
+	                <div class="col-sm-2">
+	                  <input type="date" class="form-control datetimepicker-input js-datetimepicker" id="date_from" autocomplete="off">
+	                </div>
+	                <div class="col-sm-2">
+	                	<input type="date" class="form-control datetimepicker-input js-datetimepicker" id="date_to"  autocomplete="off">
+	                </div> 
+					    <div class="col-sm-12 col-md-12 col-lg-2">
+	                	<button class="md-btn md-raised blue" id="btnBuscarHistorialBanco"><i class="fa fa-search"></i></button>
+	                </div>
+					<div class="col-sm-6 col-lg-3">
+						<div class="box list-item">
+						  <span class="avatar w-40 text-center rounded accent">
+							<span class="fa fa-credit-card"></span>
+						  </span>
+						  <div class="list-body">
+							<h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Capital Estimado en Banco</span></a></h4>
+							<small class="text-muted" id="EstCaja">$0.0</small>
+						  </div>
+						</div>
+					  </div>
+	              </div>
+			    <br>
+				<!-- <div class="box-divider"></div> -->
+
+				<div class="box-body">
+					<div class="box-header green">
+						<h3>Resumen de Banco</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblResumenBanco" data-plugin="admin_Banco">
+		            <thead>
+		              <tr>
+						<th>Concepto</th>
+		                <th>Total de Entrada</th>
+		                <th>Total de Salida</th>
+		                <th>Balance en Caja</th>
+		              </tr>
+		            </thead>
+		            <tbody></tbody>
+		          </table>
+		        </div>
+					</div>
+				</div>
+
+
+				<!--coloco una nueva!-->
+				<div class="box-body">
+					<div class="box-header grey">
+						<h3>Resumen Transacciones</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblTransaccionesBanco" data-plugin="admin_Banco">
+								<thead>
+									<tr>
+										<th>Concepto</th>
+										<th>Pago de Servicios</th>
+										<th>Pagos Parciales</th>
+										<th>Pagos Adelantados</th>
+										<th>Ventas</th>
+										<th>Otros</th>
+										<th>Comisión CLIP</th>
+										<th>Comisión Banco</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							  </table>
+						</div>
+					</div>
+				</div>
+				<div class="box-body">
+					<div class="box-header primary">
+						<h3>Resumen tipo de Transacciones</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblTipoTrans">
+								<thead>
+									<tr>
+										<th>concepto</th>
+										<th>CLIP <small>(Ingreso)</small></th>
+										<th>Transferencia <small>(Ingreso)</small></th>
+										<th>deposito <small>(Ingreso)</small></th>
+										<th>Comisión<small>(Engreso)</small></th>
+										<th>Total</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							  </table>
+						</div>
+					</div>
+				</div>
+
+				<!--coloco una nueva!-->
+				<div class="box-body">
+					<div class="box-header accent">
+						<h3>Historial</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblHistorialBanco" data-plugin="admin_Banco">
+		            <thead>
+							<tr>
+							<th>id</th>
+							<th>Descripción</th>
+							<th>Tipo</th>
+							<th>Clasificación</th>
+							<th>Tipo transacción</th>
+							<th>Fecha</th>
+							<th>Responsable</th>
+							<th>Monto</th>
+							<th>Acción</th>
+		              </tr>
+		            </thead>
+		            <tbody></tbody>
+		          </table>
+		        </div>
+					</div>
+				</div>
+
+						
+
+	
+
+
+			</div>
+		</div>
+	</div> 
+	</div>
+</div>
+
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+
+  <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<!-- jQuery -->
+  <!-- <script src="../libs/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+ <!--  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- core -->
+  <!-- <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script> -->
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/js/admin_resumen_banco.js"></script>
+
+
+<script type="text/javascript">
+	
+
+
+</script>

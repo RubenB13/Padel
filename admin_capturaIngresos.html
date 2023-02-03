@@ -1,0 +1,121 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+<div class="padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header">
+          <h2>Registrar Ingreso - PADEL</h2>
+          <small>Registro interno de ventas PADEL</small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body">
+          <form id="frmIngresos" name="frmIngresos" action="javascript:guardarIngreso()">
+            <div class="form-group row centrarForm">
+              <label for="txtConcepto" class="col-sm-2 col-form-label">Concepto:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="txtConcepto" placeholder="Concepto" name="txtConcepto" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="txtDescripcion" class="col-sm-2 col-form-label">Descripción:</label>
+              <div class="col-sm-6">
+                <input type="textarea" class="form-control" id="txtDescripcion" placeholder="Descripcion larga" name="txtDescripcion" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm" data-plugin="datetimepicker">
+              <label for="txtFechaRealizada" class="col-sm-2 col-form-label">Fecha realizada:</label>
+              <div class="col-sm-6">
+                <input type="date" class="form-control" id="txtFechaRealizada"  name="txtFechaRealizada" autocomplete="off">
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="optTipoVenta" class="col-sm-2 col-form-label">Tipo de transacción:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="optTipoVenta" name="optTipoVenta">
+                  <option value="0">Seleccione...</option>
+                  <option value="1">Alimento</option>
+                  <option value="2">Bebida</option>
+                  <option value="3">Insumo / Consumible</option>
+                  <option value="4">Material / Deportivo</option>
+                  <option value="5">otros</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtCliente" class="col-sm-2 col-form-label">Cliente:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="txtCliente" placeholder="Cliente" name="txtCliente" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtResponsable" class="col-sm-2 col-form-label">Responsable:</label>
+               <div class="col-sm-6">
+                 <input type="text" class="form-control" id="txtResponsable" placeholder="Responsable" name="txtResponsable" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtCosto" class="col-sm-2 col-form-label">Costo unitario:</label>
+               <div class="col-sm-6">
+                 <input type="text" class="form-control" id="txtCosto"  placeholder="$0.00" name="txtCosto" onchange="multi();"required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtConceptoTotal" class="col-sm-2 col-form-label">Cantidad total:</label>
+               <div class="col-sm-6">
+                 <input type="number" class="form-control" id="txtConceptoTotal"  placeholder="Conceptos totales" name="txtConceptoTotal" required onchange="multi();">
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtIngTotal" class="col-sm-2 col-form-label">Ingresos total:</label>
+               <div class="col-sm-6 ">
+                 <input type="number" class="form-control" id="txtIngTotalR" placeholder="$0.00" name="txtIngTotalR" readonly required ></input>
+              <!--  <p class="m-0 text-muted" id="txtIngTotalR" name="txtIngTotalR" style="font-size: 20px"></p>-->
+                <!-- <input type="number" class="form-control" id="txtIngTotal" placeholder="$0.00" name="txtIngTotal">-->
+              </div>
+            </div>
+            <div class="centrarForm row">
+              <button type="submit" class="btn primary col-sm-8" style="text-align: center;">Guardar ingreso</button>
+            </div>
+
+          </form>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <!-- <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script> -->
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/js/admin_nuevoIngreso.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+</script>

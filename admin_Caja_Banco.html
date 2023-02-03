@@ -1,0 +1,169 @@
+
+<div class="padding">
+	<div class="row">
+		<div class="col-sm-6 col-lg-3">
+			<div class="box list-item">
+			  <span class="avatar w-40 text-center rounded accent">
+				<span class="fa fa-credit-card"></span>
+			  </span>
+			  <div class="list-body">
+				<h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Capital Estimado en Banco:</span></a></h4>
+				<small class="text-muted" id="EstCaja">$0.0</small>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-lg-3">
+			<div class="box list-item">
+			  <span class="avatar w-40 text-center rounded success_2">
+				<span class="fa fa-money"></span>
+			  </span>
+			  <div class="list-body">
+				<h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Capital Estimado En caja:</span></a></h4>
+				<small class="text-muted" id="EstCaja">$0.0</small>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-lg-3">
+			<div class="box list-item">
+			  <span class="avatar w-40 text-center rounded success">
+				<span class="fa fa-dollar"></span>
+			  </span>
+			  <div class="list-body">
+				<h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Capital Total Estimado:</span></a></h4>
+				<small class="text-muted" id="EstCaja">$0.0</small>
+			  </div>
+			</div>
+		  </div>
+	</div>
+
+	<div class="table-responsive">
+	<div class="row">
+		<div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+			<div class="box">
+				
+				<div class="row box-header" style="margin: auto;">
+					<h2 class="col-sm-8">Resumen General de banco</h2>
+				</div>
+				<br>
+				
+			      <div class="form-inline centrarForm" data-plugin="datetimepicker">
+	                <label  class="col-sm-12 col-md-12 col-lg-2 col-form-label"> Filtar por fecha:</label>
+	                <div class="col-sm-2">
+	                  <input type="date" class="form-control" id="date_from" autocomplete="off">
+	                </div>
+	                <div class="col-sm-2">
+	                	<input type="date" class="form-control" id="date_to"  autocomplete="off">
+	                </div> 
+					    <div class="col-sm-12 col-md-12 col-lg-2">
+	                	<button class='md-btn md-raised blue' id="btnBuscarResumenGeneral"><i class='fa fa-search'></i></button>
+	                </div>
+				</div>
+			    <br>
+			
+			  <div class="box-body">
+					<div class="box-header grey">
+						<h3>Resumen de Caja</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblResumenCaja" data-plugin="buscarAdmin">
+		            <thead>
+		             	 <tr>
+										<td>Concepto</td>
+										<td>Total de Entrada</td>
+										<td>Total de Salida</td>
+										<td>Balance en caja</td>
+									</tr>
+          			</thead>
+         			 	<tbody></tbody>
+       			 	</table>
+      			</div>
+					</div>
+				</div>
+
+				<div class="box-body">
+					<div class="box-header green">
+						<h3>Resumen de Banco</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblResumenBanco" data-plugin="admin_Banco">
+		            <thead>
+		              <tr>
+										<td>Concepto</td>
+		                <td>Total de Entrada</td>
+		                <td>Total de Salida</td>
+		                <td>Balance en Caja</td>
+		              </tr>
+		            </thead>
+		            <tbody></tbody>
+		          </table>
+		        </div>
+					</div>
+				</div>
+
+
+
+				<div class="box-body">
+					<div class="box-header info">
+						<h3>Resumen de General Caja - Banco</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblResumenCajaBanco" data-plugin="admin_Banco">
+		            <thead>
+		              <tr>
+										<td>Total Movimientos Entrada</td>
+		                <td>Cantidad Total Entrada</td>
+		                <td>Total Movimientos Salida</td>
+		                <td>Cantidad Total Salida</td>
+		                <td>Cantidad Final</td>
+		              </tr>
+		            </thead>
+		            <tbody>
+		            	
+		            </tbody>
+		          </table>
+		        </div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div> 
+	</div>
+</div>
+
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+
+  <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<!-- jQuery -->
+  <!-- <script src="../libs/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+ <!--  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- core -->
+  <!-- <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script> -->
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/js/admin_Caja_Banco.js"></script>
+
+
+<script type="text/javascript">
+	
+
+
+</script>

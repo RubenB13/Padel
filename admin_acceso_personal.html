@@ -1,0 +1,169 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+<div class="padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header">
+          <h2>Registrar Personal - PADEL</h2>
+          <small>Registro interno de personal de trabajo</small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body">
+          <form enctype="multipart/form-data" id="frmEmpleados" name="frmEmpleados" method="post">
+            <div class="form-group row centrarForm">
+              <label for="txtNombreEmpleado" class="col-sm-2 col-form-label">Nombre del empleado:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="txtNombreEmpleado" placeholder="Nombre empleado" name="txtNombreEmpleado" required>
+              </div>
+            </div>
+            
+            <div class="form-group row centrarForm" data-plugin="datetimepicker">
+              <label for="txtFechaRealizada" class="col-sm-2 col-form-label">Fecha empezó a laborar:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control datetimepicker-input js-datetimepicker" data-toggle="datetimepicker" data-target="#txtFechaRealizada" id="txtFechaRealizada"  name="txtFechaRealizada" autocomplete="off">
+              </div>
+            </div>
+            
+            <div class="form-group row centrarForm">
+               <label for="txtDepartamento" class="col-sm-2 col-form-label">Departamento / Área:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="txtDepartamento" placeholder="Departamento / Área" name="txtDepartamento" required>
+              </div>
+            </div>
+
+            <div class="form-group row centrarForm">
+                <input type="hidden" class="form-control" id="txtNumEmpleado" name="txtNumEmpleado" value=0>
+              
+            </div>
+            
+            
+
+
+            <div class="the-icon-hover col-sm-6" id="contenFileUplaIN">
+              <input type="file" id="fileType" name="fileType" class="inputfile">
+              <label for="fileType" class="" ><span style="font-size:13px">Subir foto</span> <i class="fa fa-cloud-upload"></i></label>
+              <input type="hidden" value="0" id="hdIdInfra" name="hdIdInfra">
+              <input type="hidden" value="docInfra" id="txtArea" name="txtArea">
+              <input type="hidden" value="" id="txtNombreArchivoActualIN" name="txtNombreArchivoActual">
+              <input type="hidden" value="noOk" id="txtGuardoInfoOk" name="txtGuardoInfoOk">
+            </div> 
+            <div class="col-sm-4" id="divNombreArchivoArribaIN"></div>  
+
+            <div class="centrarForm row">
+              <button  class="btn primary col-sm-8" style="text-align: center;" id="btnGuardarEmpleado">Guardar</button>
+            </div>
+
+          </form>
+
+          <div id="divListadoEmpleados">
+            
+          </div>
+
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <!-- <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script> -->
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<!-- <script src="scripts/js/admin_nuevoIngreso.js"></script> -->
+
+
+
+<script type="text/javascript">
+
+
+
+  function getRandomInt() {
+    max = 10000
+    $("#txtNumEmpleado").val(Math.floor(Math.random() * max))
+  }
+
+  getRandomInt()
+
+  $("#btnGuardarEmpleado").click(function(e){
+    e.preventDefault()
+    e.stopImmediatePropagation()
+
+    var dataInfra = new FormData(jQuery('#frmEmpleados')[0]);
+    subirEmpleado(dataInfra)
+  })
+
+  function subirEmpleado(dataEmpleado){
+   
+    $.ajax({
+        url: 'scripts/asp/admin_acceso_personal.aspx',
+        data: dataEmpleado,
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST',
+        dataType:'json',
+        
+    }).done(function(dataA){
+      console.log(dataA)
+        
+        var idQuIN = dataA.idReg //este valor es el ID generado como registro AC nuevo
+        console.log(idQuIN)
+        // $("#spTituloGuardarINFRA").text(idQuIN)
+        
+        // id_eliminarEq = idQuIN
+        // $("#btnEliminarInfra").show()
+
+        // $("#hdIdInfra").val(idQuIN)
+        // $("#txtGuardoInfoOk").val(dataA.guardoInfo)
+        
+        if(dataA.ok=="ok" ){
+            nombreArrecuerchivo = dataA.nombre
+            // $("#contenFileUplaIN").addClass("hidden")
+            // $("#txtNombreArchivoActualIN").val(dataA.nombre)
+            // $("#divNombreArchivoArribaIN").text(dataA.nombre)
+            // $("#divNombreArchivoArribaIN").html("foto: <br> <a href='fotosAcceso/"+dataA.nombre+"' target='_blank'>"+dataA.nombre+"</a> "+'<a href="javascript:eliminarDocumento('+idQuIN+',&quot;'+dataA.nombre+'&quot;,&quot;docInfra&quot;,&quot;IN&quot;)" class="btn btn-danger btn-sm">X</a>')
+            limpiarCampos()
+            getRandomInt()
+            alert("Se guardo el registro correctamente")
+        }else if (dataA.ok=="noOk" && dataA.guardoInfo=="ok") {
+          alert("Se guardo registro sin foto")
+          limpiarCampos()
+          getRandomInt()
+        }
+        // rowDetailsTable.api().ajax.reload();  
+    }).fail(function(){
+        alert("Error interno, contacte al administrador")
+    });  
+  }
+
+function limpiarCampos(){
+  $("#txtNombreEmpleado, #txtFechaRealizada, #txtDepartamento").val("")
+  $("#fileType").val("")
+}
+
+
+
+</script>

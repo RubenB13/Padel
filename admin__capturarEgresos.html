@@ -1,0 +1,133 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+<div class="padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header">
+          <h2>Registrar Egreso</h2>
+          <small>Formulario para registrar los gastos...</small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body">
+          <form id="frmEgresos" name="frmEgresos" action="javascript:guardarEgresos()">
+            <div class="form-group row centrarForm">
+              <label for="txtEgConcepto" class="col-sm-2 col-form-label">Concepto:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="txtEgConcepto" placeholder="Concepto" name="txtEgConcepto" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="txtEgDescripcion" class="col-sm-2 col-form-label">Descripción / Justificacion:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="txtEgDescripcion" placeholder="Descripcion larga" name="txtEgDescripcion" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm" data-plugin="datetimepicker">
+              <label for="txtEgFecha" class="col-sm-2 col-form-label">Fecha realizada:</label>
+              <div class="col-sm-6">
+                <input type="date" class="form-control"  id="txtEgFecha"  name="txtEgFecha">
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="optTipoGasto" class="col-sm-2 col-form-label">Tipo de egreso:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="optTipoGasto" name="optTipoGasto">
+                  <option value="">Seleccione...</option>
+                  <option value="1">Fijo</option>
+                  <option value="2">Variable</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row centrarForm">
+              <label for="optFrecuencia" class="col-sm-2 col-form-label">Frecuencia de pago</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="optFrecuencia" name="optFrecuencia">
+                  <option value="">Seleccione...</option>
+                  <option value="1">Diario</option>
+                  <option value="2">Semanal</option>
+                  <option value="3">Quincenal</option>
+                  <option value="4">Mensual</option>
+                  <option value="5">Bimenstral</option>
+                  <option value="6">Semestral</option>
+                  <option value="7">Anual</option>
+                  <option value="8">Indefinido</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row centrarForm">
+               <label for="txtProveedor" class="col-sm-2 col-form-label">Proveedor / Origen:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="txtProveedor" placeholder="Proveedor" name="txtProveedor" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtEgResponsable" class="col-sm-2 col-form-label">Responsable:</label>
+               <div class="col-sm-6">
+                 <input type="text" class="form-control" id="txtEgResponsable" placeholder="Responsable" name="txtEgResponsable" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtEgCosto" class="col-sm-2 col-form-label">Costo unitario:</label>
+               <div class="col-sm-6">
+                 <input type="text" class="form-control" id="txtEgCosto" placeholder="$0.00" name="txtEgCosto" onchange="multiEgresos();" required >
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtEgConceptoTotal" class="col-sm-2 col-form-label">Cantidad total:</label>
+               <div class="col-sm-6">
+                 <input type="number" class="form-control" id="txtEgConceptoTotal" placeholder="Conceptos totales"  name="txtEgConceptoTotal" onchange="multiEgresos();" required>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+               <label for="txtEgTotal" class="col-sm-2 col-form-label">Egresos total:</label>
+               <div class="col-sm-6">
+                 <input type="number" class="form-control" id="txtEgTotal" placeholder="$0.00" name="txtEgTotal"  readonly required >
+              </div>
+            </div>
+            <div class="centrarForm row">
+              <button type="submit" class="btn primary col-sm-8" style="text-align: center;">Guardar Egreso</button>
+            </div>
+
+          </form>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <!-- <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script> -->
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/js/admin_nuevoEgreso.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+</script>

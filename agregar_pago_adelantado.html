@@ -1,0 +1,229 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+<div class="padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header bg-light">
+          <h2>Agregar clase por pago adelantado</h2>
+          <small>Registro de clase tomadas por usuarios con clases pagadas de manera</small>
+        </div>
+        <div class="box-divider m-0"></div>
+ 
+       <form action="" class="form-control">
+    
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label>Desde</label>
+            <input type="date" class="form-control" id="desde">   
+          </div>
+          <div class="form-group col-sm-6">
+            <label>Hasta</label>
+            <input type="date" class="form-control" id="hasta">      
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="button" class="btn primary" onclick="javascritp:consultaporFecha()">Consultar fecha</button>
+          <button type="button" class="btn success" onclick="javascritp:reiniciaTabla()">Reiniciar Tabla</button>
+        </div>
+
+
+
+       </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- tabla de usuarios -->
+
+	<div class="table-responsive">
+    <div class="row">
+      <div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+        <div class="box">
+          
+                <div class="box-body">
+            <div class="box-header green">
+              <h3>Pagos Adelantados</h3>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-bordered v-middle p-0 m-0 box text-center" id="tblTomaClasesAdelantadas">
+                  <thead>
+                    <tr>
+                      <td>id</td>
+                      <td>Nombre</td>
+                      <td>Fecha/Pago</td>
+                      <td># Clases</td>    
+                      <td># Tomadas</td>
+                      <td># Restan</td>
+                      <td>$ Pagado</td>  
+                      <td>$ restante</td>
+                      <td>Tipo</td>
+                      <td>Profe</td>
+                      <td>ver info</td>
+                      <td>Agregar clase</td>
+                       </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div> 
+    </div>
+
+    <!-- modal para modificacipon -->
+    <div id="infoClasesTomadas" class="modal fade" data-backdrop="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header info">
+            <h5 class="modal-title">Info de clases Tomadas</h5>
+          </div>
+          <div class="modal-body text-center p-lg">
+
+            <div class="modal-body text-center p-lg">
+              <p>Nombre de usuario:</p>
+              <input class="form-group" type="text" id="user" disabled style="display: none;">
+              <input class="form-control text-center" type="text" id="usuario" disabled>
+            </div>
+            <div class="table-responsive">
+              <div class="row">
+                <div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+                  <div class="box">
+                    
+                          <div class="box-body">
+                      <div class="box-header bg-light">
+                        <h3>clases Tomadas</h3>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <table class="table table-bordered v-middle p-0 m-0 box text-center" id="tblusuariosPagosAd2">
+                            <thead>
+                              <tr>
+                                <td>id</td>
+                                <td>fecha Tomada</td>
+                                <td>Acción</td>
+                                 </tr>
+                            </thead>
+                            <tbody></tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+            
+                  </div>
+                </div>
+              </div> 
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn danger p-x-md" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div>
+    </div>
+    <!-- / .modal -->
+
+    
+        <!-- .modal -->
+        <div id="agregaClase" class="modal fade" data-backdrop="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Agregar Clase</h5>
+              </div>
+              <div class="modal-body text-center p-lg">
+                <p>Nombre de usuario:</p>
+                <input class="form-group" type="text" id="idUser2" disabled style="display: none;">
+                <input class="form-control text-center" type="text" id="nombreUser" disabled>
+              </div>
+
+              <div class="modal-body text-center p-lg">
+                <p><b> Clases Restantes:</b></p>
+                   <input class="form-control text-center" type="text" id="ClasesRestan" disabled>
+              </div>
+              <div class="modal-body text-center" data-plugin="datetimepicker">
+                <p>Seleccionar fecha de uso</p>
+                <input type="date" class="form-control datetimepicker-input js-datetimepicker text-center" id="fechaUso" autocomplete="off">
+              </div>
+
+              
+          
+              <div class="modal-footer text-center" id="agregarClase" style="display:none">
+
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn danger p-x-md" onclick="javascript:agregaClase()">Agregar Clase</button>
+              </div>
+
+              <div class="modal-footer text-center" id="sinClases" style="display:none">
+                
+                <div class="box-color warning pos-rlt">
+                  <span class="arrow left b-warning"></span>
+                  <div class="box-body">
+                    Sin clases Restantes
+                  </div>
+                </div>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Salir</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div>
+        </div>
+        <!-- / .modal -->
+
+                <!-- .modal -->
+                <div id="modalBorrarclase" class="modal fade" data-backdrop="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header danger">
+                        <h5 class="modal-title">Borrar Clase</h5>
+                      </div>
+                      <div class="modal-body text-center p-lg">
+                        <p>¿desea Borrar Clase?</p>
+                        <input class="form-group" type="text" id="ids" disabled style="display: none;">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">no</button>
+                        <button type="button" class="btn danger p-x-md" onclick="javascript:borraClase()">Borrar</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div>
+                </div>
+
+</div>
+
+
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+  <script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <!-- <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script> -->
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="./scripts/js/agregar_ClaseAdelantada.js" ></script>
+
+
+
+<script type="text/javascript"></script>

@@ -1,0 +1,203 @@
+
+
+<div class="padding">
+	
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-8">
+			<div class="box">
+				<div class="box-header row">
+					<div class="col-sm-9 col-md-9 col-lg-9">
+						Mi actividad 	
+					</div>
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<!-- <button class='md-btn md-raised indigo' id="btnNuevoProfesor">Nuevo profesor</button> -->
+					</div>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="form-inline " data-plugin="datetimepicker">
+		                <label  class="col-sm-1 col-form-label">Semana:</label>
+		                <div class="col-sm-4 col-lg-4">
+		                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="fecha_inicial" data-toggle="datetimepicker" data-target="#fecha_inicial" name="fecha_inicial" placeholder="De:" autocomplete="off">
+		                </div>
+		                <div class="col-sm-4 col-lg-4">
+		                	<input type="text" class="form-control datetimepicker-input js-datetimepicker" id="fecha_final" data-toggle="datetimepicker" data-target="#fecha_final" name="fecha_final" placeholder="A:" autocomplete="off">
+		                </div>
+		                <div class="col-sm-1">
+		                	<button class='md-btn md-raised blue buscarAgendaProfesor'><i class='fa fa-search'></i></button>
+		                </div>
+		            </div>
+		            <!-- <div class="form-inline mt-2">
+		                <label  class="col-sm-1 col-form-label">Profesor:</label>
+		                <div class="col-sm-4 col-md-4 col-lg-4">
+		                	<select class="form-control" id="optProfesor" name="optProfesor" required>
+			                    <option value="">Seleccione...</option>
+			                </select>
+		                </div>
+		                
+		            </div> -->
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<div class="box">
+				<div class="box-header primary">
+					Egreso estimado:
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<h1 id="nomina_profesor" class="text-center">0.00</h1>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<div class="box">
+				<div class="box-header primary">
+					Clases particulares: <span class="badge warning" title="Total de clases" id="totalClasesParticular"></span>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="streamline streamline-xs streamline-dotted" id="ListaParticular">
+
+        			</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<div class="box">
+				<div class="box-header accent">
+					Clases grupales: <span class="badge warning" title="Total de clases" id="totalClasesGrupal"></span>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="streamline streamline-xs streamline-dotted" id="ListaGrupal">
+
+        			</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<div class="box">
+				<div class="box-header indigo">
+					Clases academia: <span class="badge warning" title="Total de clases" id="totalClasesAcademia"></span>
+				</div>
+				<div class="box-divider"></div>
+				<div class="box-body">
+					<div class="streamline streamline-xs streamline-dotted" id="ListaAcademia">
+
+        			</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- <div class="table-responsive">
+	<div class="row">
+		<div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+			<div class="box">
+				<div class="row box-header primary" style="margin: auto;">
+					<h2 class="col-sm-8">Listado Academia</h2>
+					
+				</div>
+				<br>
+			
+			      <div class="form-inline centrarForm" data-plugin="datetimepicker">
+	                <label  class="col-sm-1 col-form-label">Periodo:</label>
+	                <div class="col-sm-2">
+	                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="date_from" data-toggle="datetimepicker" data-target="#date_from" name="date_from" placeholder="De:">
+	                </div>
+	                <div class="col-sm-2">
+	                	<input type="text" class="form-control datetimepicker-input js-datetimepicker" id="date_to" data-toggle="datetimepicker" data-target="#date_to" name="date_to" placeholder="A:">
+	                </div>
+	                <div class="col-sm-2">
+	                	<button class='md-btn md-raised blue buscarAcademia'><i class='fa fa-search'></i></button>
+	                </div>
+	              </div>
+			    <br>
+				
+
+				<div class="box-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table v-middle p-0 m-0 box" id="tblReservacionesAcademia" data-plugin="admin_agendaaa">
+					            <thead>
+					              <tr>
+					              	<th></th>
+					                <th>id</ht>
+					                <th>Estatus</th>
+					                <th>Fecha Ins</th>
+					                <th>Cliente</th>
+					                <th>Teléfono</th>
+					                <th>Nivel</th>
+					                <th>Grupo</th>
+					                <th>Fecha reservación</th>
+					                <th>Fecha siguiente pago</th>
+					                <th>Tipo pago</th>
+					                <th>Costo</th>
+					              </tr>
+					            </thead>
+					            <tbody></tbody>
+				          </table>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+	</div> -->
+</div>
+
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+	<!-- <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script> -->
+
+
+  <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<!-- jQuery -->
+  <!-- <script src="../libs/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+  <!-- <script src="../libs/popper.js/dist/umd/popper.min.js"></script> -->
+  <!-- <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- core -->
+  <!-- <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script>  -->
+  
+  <script src="scripts/app.js"></script>
+  <!-- <script src="scripts/plugins/datetimepicker.js"></script> -->
+<!-- endbuild -->
+
+<!-- <script src="scripts/js/admin_listadoAcademia.js"></script> -->
+<!-- <script src="scripts/js/admin_nuevaAgenda.js"></script>-->
+<!-- <script src="scripts/js/admin_nuevoProfesor.js"></script> -->
+<script src="scripts/js/admin_calculaNominaProfesor.js"></script> 
+
+<script type="text/javascript">
+	
+
+	
+
+
+</script>

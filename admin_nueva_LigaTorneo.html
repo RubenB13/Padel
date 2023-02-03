@@ -1,0 +1,144 @@
+<div class="padding">
+	
+
+	<div class="table-responsive" id="divListadoTorneos">
+	<div class="row">
+		<div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+			<div class="box">
+				<div class="row box-header primary" style="margin: auto;">
+					<h2 class="col-sm-8 pb-2"><i class="fa fa-trophy pr-2"></i> LIGAS Y TORNEOS </h2>
+					<button class="btn btn-fw info col-sm-4 col-md-4" id="btnNuevaLigaTorneo">Nueva Liga o Torneo</button>
+				</div>
+				<br>
+          <div class="padding row row-sm form-inline " data-plugin="datetimepicker" style="justify-content: center">
+          	<div class="col-xs-12 col-sm-12 col-lg-1 pb-2" style="text-align: center;">
+          		<label class="col-form-label">Periodo:</label>
+          	</div>	                
+            <div class="col-xs-3 pb-2">
+              <input type="date" class="form-control" id="date_from"  name="date_from" placeholder="De:" autocomplete="off" style="width: 100%">
+            </div>
+            <div class="col-xs-3 pb-2">
+             	<input type="date" class="form-control" id="date_to"  name="date_to" placeholder="A:" autocomplete="off" style="width: 100%">
+            </div>
+            <div class="col-4 col-lg-1 pb-2" style="text-align: center;">
+              <button class='md-btn md-raised primary buscar' style="width: 100%;  height: 4vh;"><i class='fa fa-search'></i></button>
+            </div>
+          </div>
+				  <br>
+				  <!-- <div class="form-inline centrarForm">
+					<div class="col-sm-12">
+					<button onclick="exportar()" class="btn btn-sm btn-rounded success">Exportar a Excel</button>
+				     </div>
+				  </div>
+			    <br> -->
+				<!-- <div class="box-divider"></div> -->
+
+				<div class="box-body">
+					<div class="row" style="justify-content: center">
+						<div class="col-sm-12 col-lg-6">
+							<table class="table table-bordered v-middle box" id="tblListadoLigas" data-plugin="admin_ligas">
+		            <thead>
+		              <tr>
+		                <td>id</td>
+		                <td>Nombre Liga/Torneo</td>
+		                <td>Acción</td>
+		              </tr>
+		            </thead>
+		            <tbody></tbody>
+		          </table>
+		        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+	</div>
+
+
+	<div class="box" id="divNuevoTorneo" style="display: none;">
+		<div class="row box-header primary" style="margin: auto;">
+			<h2 class="col-sm-9 pb-2"> <i class="fa fa-trophy pr-2"></i> NUEVA LIGA O TORNEO </h2>
+			<button class="btn btn-fw info col-sm-3 col-md-3" id="btnRegresarListadoTorneos">Regresar al listado</button>
+		</div>
+
+		<div class="box-body" style="justify-content:center; display: flex;">
+      <form id="frmNuevoTorneo">
+        <div class="form-group">
+          <label for="txtNombreTorneo">Nombre de la Liga o Torneo</label>
+          <input type="text" class="form-control" id="txtNombreTorneo" name="txtNombreTorneo" placeholder="Nombre de la liga o torneo" style="box-shadow: 1px 1px 3px #b1b1b1" required>
+          <small class="form-text text-muted">Cada liga o torneo debera llevar un nombre para identificarlo en el listado de ligas y torneos.</small>
+        </div>
+        <div class="form-group">
+          <label for="txtCostoInscripcion">Costo de la Inscripción</label>
+          <input type="text" class="form-control" id="txtCostoInscripcion" name="txtCostoInscripcion" placeholder="0.00" style="box-shadow: 1px 1px 3px #b1b1b1">
+          <small class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="date_from">La Liga o Torneo inicia el...</label>
+          <input type="date" class="form-control" id="date_from"  name="date_from" placeholder="DE:" autocomplete="off" style="box-shadow: 1px 1px 3px #b1b1b1">
+          <small class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+          <label for="date_to">La Liga o Torneo termina el...</label>
+          <input type="date" class="form-control" id="date_to"  name="date_to" placeholder="DE:" autocomplete="off" style="box-shadow: 1px 1px 3px #b1b1b1">
+          <small class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+        	<label>Hora inicio</label>
+        	<input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC1" data-toggle="datetimepicker" data-target="#txthorarioInicioC1" name="txthorarioInicioC1" autocomplete="off" style="box-shadow: 1px 1px 3px #b1b1b1">
+        </div>
+        <div class="form-group">
+        	<label>Hora fin</label>
+        	<input type="text" class="form-control datetimepicker-input" id="txthorarioFinC1" data-toggle="datetimepicker" data-target="#txthorarioFinC1" name="txthorarioFinC1" autocomplete="off" style="box-shadow: 1px 1px 3px #b1b1b1">
+        </div>
+        <div class="form-group">
+        	<label>Día que se juagara el torne</label>
+        	<select class="form-control" id="cboDia" name="cboDia" style="box-shadow: 1px 1px 3px #b1b1b1">
+            <option value="">Seleccione...</option>
+            <option value="1">Lunes</option>
+            <option value="2">Martes</option>
+            <option value="3">Miércoles</option>
+            <option value="4">Jueves</option>
+            <option value="5">Viernes</option>
+            <option value="6">Sábado</option>
+            <option value="7">Domingo</option>
+         </select>
+        </div>
+        <input type="hidden" id="idReg" name="idReg" value="0">
+
+        
+        <button type="submit" id="btnGuardarTorneo" class="btn primary col-12">Guardar</button>
+      </form>
+    </div>
+	</div>
+
+</div> <!-- padding -->
+
+
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+
+
+  <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<!-- jQuery -->
+  <!-- <script src="../libs/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+ <!--  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- core -->
+  <!-- <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script> -->
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/js/admin_nueva_LigaTorneo.js"></script>

@@ -1,0 +1,207 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+<div class="padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header dark">
+          <h2>Resumen de Pagos Adelantados</h2>
+          <small>Año al corriente</small>
+        </div>
+        <div class="box-divider m-0"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- tabla de usuarios -->
+
+	<div class="table-responsive">
+    <div class="row">
+      <div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+        <div class="box">
+          
+                <div class="box-body">
+            <div class="box-header green">
+              <h3>Resumen del mes: </h3>
+              <h4 id="mesPagoAdelantado"></h4>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-bordered v-middle p-0 m-0 box text-center" id="resumenPagosAdelantadosMes">
+                  <thead>
+                    <tr>
+                      <th>Clases Totales Pagadas</th>
+                      <th>Total Pagado</th>
+                      <th>total Clases Restantes</th>
+                      <th>Total Capital Restante</th>
+                        </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-bordered v-middle p-0 m-0 box text-center" id="resumenPagosAdelantadosMestipo">
+                  <thead>
+                    <tr>
+                      <th>Tipo de Clase</th>
+                      <th>Clases Pagadas</th>
+                      <th>Ingreso Estimado</th>
+                        </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div> 
+    </div>
+
+    <div class="table-responsive">
+      <div class="row">
+        <div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+          <div class="box">
+            
+                  <div class="box-body">
+              <div class="box-header warning">
+                <h3>Resumen global de clases adelantadas</h3>
+                <small>Todas las clases pagadas desde el inicio</small>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table class="table table-bordered v-middle p-0 m-0 box text-center" id="resumenGlobalPagosAdelantados">
+                    <thead>
+                      <tr>
+                        <th>Clases Totales Pagadas</th>
+                        <th>Total Pagado</th>
+                        <th>total Clases Restantes</th>
+                        <th>Total Capital Restante</th>
+                          </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div> 
+      </div>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="box-header bg-light">
+            <h2>Consulta de Datos por fecha</h2>
+            <small>Seleccione una fecha para consultar</small>
+          </div>
+          <div class="box-divider m-0"></div>
+   
+         <form action="" class="form-control">
+      
+          <div class="form-row">
+            <div class="form-group col-sm-6">
+              <label>Desde</label>
+              <input type="date" class="form-control" id="desde">   
+            </div>
+            <div class="form-group col-sm-6">
+              <label>Hasta</label>
+              <input type="date" class="form-control" id="hasta">      
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn primary" onclick="javascritp:consultaporFecha()">Consultar fecha</button>
+          </div>
+  
+  
+  
+         </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="table-responsive">
+      <div class="row">
+        <div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+          <div class="box">
+            
+                  <div class="box-body">
+              <div class="box-header info">
+                <h3>Resumen consultado:</h3>
+                 </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table class="table table-bordered v-middle p-0 m-0 box text-center" id="resumenPagosAdelantadosConsultado">
+                    <thead>
+                      <tr>
+                        <th>Clases Totales Pagadas</th>
+                        <th>Total Pagado</th>
+                        <th>total Clases Restantes</th>
+                        <th>Total Capital Restante</th>
+                          </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table class="table table-bordered v-middle p-0 m-0 box text-center" id="resumenPagosAdelantadosMestipoConsultado">
+                    <thead>
+                      <tr>
+                        <th>Tipo de Clase</th>
+                        <th>Clases Pagadas</th>
+                        <th>Ingreso Estimado</th>
+                          </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+      </div> 
+      </div>
+
+</div>
+
+
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+  <script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <!-- <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script> -->
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/js/resumen_pagos_adelantados.js"></script>
+
+
+
+<script type="text/javascript"></script>

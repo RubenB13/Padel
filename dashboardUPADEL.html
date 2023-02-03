@@ -1,0 +1,198 @@
+<style type="text/css">
+	.centrarForm{
+		justify-content: center;
+	}
+</style>
+
+<div>
+	<div class="p-3 light lt box-shadow-0 d-flex">
+		<div class="flex">
+			<h1 class="text-md mb-1 _400">Resumen General PADEL</h1>
+			<small class="text-muted"  id="fecha-actual"> </small>
+		</div>
+		<div>
+			<small class="text-muted d-block">Status</small>
+
+	      </div>
+	</div>
+	<div class="padding">
+		<div class="row">
+	      <div class="col-sm-6 col-lg-3">
+	        <div class="box list-item">
+	          <span class="avatar w-40 text-center rounded primary">
+	            <span class="fa fa-calendar"></span>
+	          </span>
+	          <div class="list-body">
+	            <h4 class="m-0 text-md"><a href="#"><span class="text-sm">Total de agendas del dia</span></a></h4>
+	            <small class="text-muted" id="agendaDia" ></small>
+	          </div>
+	        </div>
+	      </div>
+
+	      <div class="col-sm-6 col-lg-3">
+	        <div class="box list-item">
+	          <span class="avatar w-40 text-center rounded info theme">
+	            <span class="fa fa-arrow-circle-left"></span>
+	          </span>
+	          <div class="list-body">
+	            <h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Egresos totales del dia</span></a></h4>
+	            <small class="text-muted" id="EgresosDia"></small>
+	          </div>
+	        </div>
+	      </div>
+
+	      <div class="col-sm-6 col-lg-3">
+	        <div class="box list-item">
+	          <span class="avatar w-40 text-center rounded success">
+	            <span class="fa fa-dollar"></span>
+	          </span>
+	          <div class="list-body">
+	            <h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Ingreso U-padel del dia</span></a></h4>
+	            <small class="text-muted" id="IngEstimadosRenta"></small>
+	          </div>
+	        </div>
+	      </div>
+
+	      <div class="col-sm-6 col-lg-3">
+	        <div class="box list-item">
+	          <span class="avatar w-40 text-center rounded success_2">
+	            <span class="fa fa-money"></span>
+	          </span>
+	          <div class="list-body">
+	            <h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Ingresos por venta</span></a></h4>
+	            <small class="text-muted" id="IngEstimadosVenta"></small>
+	          </div>
+	        </div>
+	      </div>
+
+				<!--<tabla de resumen General>-->
+				<div class="padding">
+				<div class="table-responsive" >
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12" style="margin: 0 auto;">
+						<div class="box">
+							<div class="row box-header primary" style="margin: auto;">
+								<h2 class="col-sm-8" id="MesActuaLT"> </h2>
+								<!-- <button class="btn btn-fw warning col-sm-4 col-md-4" id="btnNuevaIncidencia">Nueva incidencia</button -->
+							</div>
+
+						<!--	<div class="box-divider"></div>-->
+							<div class="box-body">
+								<div class="row">
+									<div class="col-sm-12 col-md-12 col-lg-12">
+										<table class="table v-middle p-0 m-0 box table-bordered" id="tblResumenGral" data-plugin="admin_dashboard">
+					            <thead>
+					              <tr>
+													<td>Ingreso uso de cancha</td>
+					                <td>Ingreso venta interna</td>
+					                <td>Egresos operativos/administrativos</td>
+					                <td>Egresos maestros</td>
+					                <td>Balance</td>
+					               <!--  <td></td> -->
+					              </tr>
+					            </thead>
+					            <tbody></tbody>
+					          </table>
+					        </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+
+
+
+			<!--<tabla de resumen anual>-->
+			<div class="padding">
+			<div class="table-responsive" >
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12" style="margin: 0 auto;">
+					<div class="box">
+						<div class="row box-header primary" style="margin: auto;">
+							<h2 class="col-sm-8">Resumen del año</h2>
+							<!-- <button class="btn btn-fw warning col-sm-4 col-md-4" id="btnNuevaIncidencia">Nueva incidencia</button -->
+						</div>
+
+					<!--	<div class="box-divider"></div>-->
+						<div class="box-body">
+							<div class="row">
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<table class="table v-middle p-0 m-0 box table-bordered"  id="tblResumenAnual" data-plugin="admin_dashboard">
+										<thead>
+											<tr>
+												<td>Meses</td>
+												<td>Ingreso uso de cancha</td>
+												<td>Descuento</td>
+												<td>Ingreso venta interna</td>
+												<td>Egresos operativos/administrativos</td>
+												<td>Egresos maestros</td>
+												<td>Balance</td>
+											 <!--  <td></td> -->
+											</tr>
+										</thead>
+										<tbody></tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div>
+			<div class="row no-gutters">
+				<div class="col-md-4">
+					<div class="padding">
+
+						<h6>Gráficos de desempeño</h6>
+						<p class="text-muted my-3">Comportamiento del balance general a lo largo del año</p>
+						<!-- <p><i class="fa fa-arrow-circle-o-up text-success mr-1"></i><span class="text-success">15%</span> more than last week</p>
+						<a href="#" class="btn btn-sm btn-rounded success">Update</a>
+						<a href="#" class="btn btn-sm btn-rounded white">See detail</a> -->
+
+					</div>
+		        </div>
+		        <div class="col-md-8">
+			        <div class="padding">
+			            <canvas id="chart-anual" height="120">
+			            </canvas>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+		<!-- <div>
+			<div class="row no-gutters">
+				<div class="col-md-4">
+					<div class="padding">
+						<h6>Graficos de desempeño</h6>
+						<p class="text-muted my-3">Comportamiento del balance general a lo largo del año</p>
+						<a href="javascript:ver('admin_agendarCancha','content')" class="btn btn-sm btn-rounded success">Ir a agenda</a>
+						<a href="javascript:ver('admin__capturarEgresos','content')" class="btn btn-sm btn-rounded white">Ir a egresos</a>
+
+					</div>
+				</div>
+						<div class="col-md-8">
+							<div class="padding">
+								<div id="grafica" style="height: 300px; width: 100%;"></div>
+
+							</div>
+						</div>
+				</div>
+		</div> -->
+
+	</div>
+	</div>
+	</div>
+  <script src="../libs/chart.js/dist/Chart.min.js"></script>
+  <script src="scripts/plugins/jquery.chart.js"></script>
+  <script src="scripts/plugins/chartjs.js"></script>
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+  <script src="scripts/app.js"></script>
+
+<script src="scripts/js/admin_principal.js"></script>

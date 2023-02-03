@@ -1,0 +1,134 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+<div class="padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header blue-grey">
+          <h2>Agregar Nuevo usuario</h2>
+          <small>Rellena los campos</small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body">
+          <form id="NuevoUser" name="NuevoUser" action="javascript:guardaUserPA()">
+                <div class="form-group row centrarForm">
+                    <label for="txtTrans" class="col-sm-2 col-form-label">Nombre de usuario:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="PaNomb" placeholder="Nombre" name="PaNomb" autocomplete="off" required>
+                    </div>
+                </div>
+      
+             
+                <div class="centrarForm row">
+                  <button type="submit" class="md-btn md-raised mb-2 indigo" style="text-align: center;">Guardar usuario</button>
+                </div>
+
+          </form>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- tabla de usuarios -->
+
+	<div class="table-responsive">
+    <div class="row">
+      <div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+        <div class="box">
+          
+                <div class="box-body">
+            <div class="box-header green">
+              <h3>Usuarios - Pagos Adelantados</h3>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <table class="table table-bordered v-middle p-0 m-0 box text-center" id="tblusuariosPagosAd">
+                  <thead>
+                    <tr>
+                      <td>id</td>
+                      <td>Nombre</td>
+                      <td>Fecha de ingreso</td>
+                      <td>Acción</td>
+                       </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div> 
+    </div>
+
+    <!-- modal para modificacipon -->
+    <div id="mdModifica" class="modal fade" data-backdrop="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-info">
+            <h5 class="modal-title">Modificar información</h5>
+          </div>
+          <div class="modal-body text-center p-lg">
+            <form>
+
+              <div class="form-group row centrarForm" style="display:none;">
+                <label for="id" class="col-sm-2 col-form-label">id:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="iduser" placeholder="" name="id" autocomplete="off" disabled>
+                </div>
+            </div>
+              <div class="form-group row centrarForm">
+                  <label for="PaNomb2" class="col-sm-2 col-form-label">Nuevo Nombre:</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="PaNomb2" placeholder="Nuevo nombre" name="PaNomb2" autocomplete="off" required>
+                  </div>
+              </div>
+    
+           
+        </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">Cancelar</button>
+            <button type="button" onclick="javascritp:modificaUser()"  class="btn danger p-x-md">Guardar Cambios</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div>
+    </div>
+    <!-- / .modal -->
+
+</div>
+
+
+<!-- jQuery -->
+  <script src="../libs/jquery/dist/jquery.min.js"></script>
+  <script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+<!-- Bootstrap -->
+  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- core -->
+  <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <!-- <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script> -->
+  <script src="scripts/ajax.js"></script>
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/js/admin_save_uspa.js"></script>
+
+
+
+<script type="text/javascript"></script>

@@ -1,0 +1,537 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+<div class="padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header">
+          <h2>AGENDAR VISITA</h2>
+          <small>formulario para agendar una visita...</small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body">
+          <form id="frmAgenda" name="frmAgenda" action="javascript:revisarHorario()">
+            <div class="form-group row centrarForm">
+              <label for="txtNombreCliente" class="col-sm-2 col-form-label">Nombre:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="txtNombreCliente" placeholder="Nombre del cliente" name="txtNombreCliente" required autocomplete="off">
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="txtTelefono" class="col-sm-2 col-form-label">Teléfono:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="txtTelefono" placeholder="Teléfono" name="txtTelefono" autocomplete="off">
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="optTipoServicio" class="col-sm-2 col-form-label">Tipo de servicio:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="optTipoServicio" name="optTipoServicio" required>
+                  <option value="">Seleccione...</option>
+                </select>
+                <div style="display: none; background-color: #101010; color: white; margin-top: 5px; margin-left: 5px;" id="divHorarioPermitido"  >
+                  <label id="lblHorarioPermitido" style="margin-bottom: 0px"></label>
+                </div>
+              </div>
+            </div>
+            <div id="divDatosAcademia" style="display: none;">
+              <div class="form-group row centrarForm">
+                <label for="txtNivel" class="col-sm-2 col-form-label">Nivel:</label>
+                <div class="col-sm-6">
+                  <!-- <input type="text" class="form-control" id="txtNivel" placeholder="Nivel" name="txtNivel"> -->
+                  <select class="form-control" id="txtNivel" name="txtNivel">
+                    <option value="">Seleccione...</option>
+                    <option value="1">Básico</option>
+                    <option value="2">Intermedio</option>
+                    <option value="3">Avanzado</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="txtGrupoAsignado" class="col-sm-2 col-form-label">Grupo asignado:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="txtGrupoAsignado" placeholder="Grupo asignado" name="txtGrupoAsignado">
+                </div>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtfechaInscrpcion" class="col-sm-2 col-form-label">Fecha inscripcion:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtfechaInscrpcion" data-toggle="datetimepicker" data-target="#txtfechaInscrpcion" name="txtfechaInscrpcion" autocomplete="off">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optTipoPago" class="col-sm-2 col-form-label">Tipo de pago:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optTipoPago" name="optTipoPago">
+                    <option value="">Seleccione...</option>
+                    <option value="1">Mensual</option>
+                    <option value="2">Bimestral</option>
+                    <option value="3">Trimestral</option>
+                    <option value="4">Semestral</option>
+                    <option value="5">Anual</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtUltimaFechadePago" class="col-sm-2 col-form-label">Ultima fecha de pago:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtUltimaFechadePago" data-toggle="datetimepicker" data-target="#txtUltimaFechadePago" name="txtUltimaFechadePago">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optEstatus" class="col-sm-2 col-form-label">Estado:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optEstatus" name="optEstatus">
+                    <option value="">Seleccione...</option>
+                    <option value="1">Activo</option>
+                    <option value="2">Pendiente</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-group row centrarForm">
+              <label for="optProfesor" class="col-sm-2 col-form-label">Profesor:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="optProfesor" name="optProfesor" required>
+                  <option value="">Seleccione...</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="optNumPersonas" class="col-sm-2 col-form-label">Número de personas:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="optNumPersonas" name="optNumPersonas" required>
+                  <option value="">Seleccione...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="txtObservaciones" class="col-sm-2 col-form-label">Observaciones:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="txtObservaciones" placeholder="Observaciones" name="txtObservaciones">
+              </div>
+            </div>
+            
+            <div class="form-group row centrarForm col-sm-5">
+              <span class="badge success pos-rlt mr-2"><b class="arrow bottom b-success pull-in"></b>Clase no. 1</span>
+            </div>
+            <div class="form-group row centrarForm">
+              <label for="optCanchaAsignada1" class="col-sm-2 col-form-label">Cancha asignada:</label>
+              <div class="col-sm-6">
+                <select class="form-control" id="optCanchaAsignada1" name="optCanchaAsignada1" required>
+                  <option value="">Seleccione...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row centrarForm" id="DivReservaciones1"  style="display: none;">
+              <label class="col-sm-2 col-form-label warning p-0 text-center" style="align-self: center;">Reservaciones:</label>
+              <div class="list-group col-sm-6" id="ListaReservaciones1">
+                <!-- Aqui ponemos las reservas del dia seleccionado -->
+              </div>
+            </div>
+            <div class="form-group row centrarForm" style="display:none;" id="divNoDisponibleClase1">
+                <span class="badge danger pos-rlt mr-2" id="nodisponibleClase1"><b class="arrow bottom b-danger pull-in"></b></span>
+              </div>
+            <div class="form-group row centrarForm" data-plugin="datetimepicker">
+              <label for="txtFechaReservaC1" class="col-sm-2 col-form-label">Fecha reserva:</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtFechaReservaC1" data-toggle="datetimepicker" data-target="#txtFechaReservaC1" name="txtFechaReservaC1" required autocomplete="off">
+              </div>
+            </div>
+            
+            <div class="form-group row centrarForm">
+              <label for="txthorarioInicioC1" class="col-sm-2 col-form-label">Hora inicio:</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC1" data-toggle="datetimepicker" data-target="#txthorarioInicioC1" name="txthorarioInicioC1" required autocomplete="off">
+              </div>
+              <label for="txthorarioFinC1" class="col-sm-2 col-form-label">Hora fin:</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control datetimepicker-input" id="txthorarioFinC1" data-toggle="datetimepicker" data-target="#txthorarioFinC1" name="txthorarioFinC1" required autocomplete="off">
+              </div>
+            </div>
+
+            <div id="divClasesAcademia" style="display: none;">
+              <div class="form-group row centrarForm col-sm-5">
+                <span class="badge success pos-rlt mr-2"><b class="arrow bottom b-success pull-in"></b>Clase no. 2</span>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optCanchaAsignada2" class="col-sm-2 col-form-label">Cancha asignada:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optCanchaAsignada2" name="optCanchaAsignada2">
+                    <option value="">Seleccione...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm" id="DivReservaciones2"  style="display: none;">
+                <label class="col-sm-2 col-form-label warning p-0 text-center" style="align-self: center;">Reservaciones:</label>
+                <div class="list-group col-sm-6" id="ListaReservaciones2">
+                  <!-- Aqui ponemos las reservas del dia seleccionado -->
+                </div>
+              </div>
+              <div class="form-group row centrarForm" style="display: none;" id="divNoDisponibleClase2">
+                <span class="badge danger pos-rlt mr-2" id="nodisponibleClase2"><b class="arrow bottom b-danger pull-in"></b></span>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtFechaReservaC2" class="col-sm-2 col-form-label">Fecha reserva:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtFechaReservaC2" data-toggle="datetimepicker" data-target="#txtFechaReservaC2" name="txtFechaReservaC2">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="txthorarioInicioC2" class="col-sm-2 col-form-label">Hora inicio:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC2" data-toggle="datetimepicker" data-target="#txthorarioInicioC2" name="txthorarioInicioC2">
+                </div>
+
+                <label for="txthorarioFinC2" class="col-sm-2 col-form-label">Hora fin:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioFinC2" data-toggle="datetimepicker" data-target="#txthorarioFinC2" name="txthorarioFinC2">
+                </div>
+              </div>
+
+              <div class="form-group row centrarForm col-sm-5">
+                <span class="badge success pos-rlt mr-2"><b class="arrow bottom b-success pull-in"></b>Clase no. 3</span>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optCanchaAsignada3" class="col-sm-2 col-form-label">Cancha asignada:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optCanchaAsignada3" name="optCanchaAsignada3">
+                    <option value="">Seleccione...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm" id="DivReservaciones3"  style="display: none;">
+                <label class="col-sm-2 col-form-label warning p-0 text-center" style="align-self: center;">Reservaciones:</label>
+                <div class="list-group col-sm-6" id="ListaReservaciones3">
+                  <!-- Aqui ponemos las reservas del dia seleccionado -->
+                </div>
+              </div>
+              <div class="form-group row centrarForm" style="display: none;" id="divNoDisponibleClase3">
+                <span class="badge danger pos-rlt mr-2" id="nodisponibleClase3"><b class="arrow bottom b-danger pull-in"></b></span>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtFechaReservaC3" class="col-sm-2 col-form-label">Fecha reserva:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtFechaReservaC3" data-toggle="datetimepicker" data-target="#txtFechaReservaC3" name="txtFechaReservaC3">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="txthorarioInicioC3" class="col-sm-2 col-form-label">Hora inicio:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC3" data-toggle="datetimepicker" data-target="#txthorarioInicioC3" name="txthorarioInicioC3">
+                </div>
+
+                <label for="txthorarioFinC3" class="col-sm-2 col-form-label">Hora fin:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioFinC3" data-toggle="datetimepicker" data-target="#txthorarioFinC3" name="txthorarioFinC3">
+                </div>
+              </div>
+
+              <div class="form-group row centrarForm col-sm-5">
+                <span class="badge success pos-rlt mr-2"><b class="arrow bottom b-success pull-in"></b>Clase no. 4</span>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optCanchaAsignada4" class="col-sm-2 col-form-label">Cancha asignada:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optCanchaAsignada4" name="optCanchaAsignada4">
+                    <option value="">Seleccione...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm" id="DivReservaciones4"  style="display: none;">
+                <label class="col-sm-2 col-form-label warning p-0 text-center" style="align-self: center;">Reservaciones:</label>
+                <div class="list-group col-sm-6" id="ListaReservaciones4">
+                  <!-- Aqui ponemos las reservas del dia seleccionado -->
+                </div>
+              </div>
+              <div class="form-group row centrarForm" style="display: none;" id="divNoDisponibleClase4">
+                <span class="badge danger pos-rlt mr-2" id="nodisponibleClase4"><b class="arrow bottom b-danger pull-in"></b></span>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtFechaReservaC4" class="col-sm-2 col-form-label">Fecha reserva:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtFechaReservaC4" data-toggle="datetimepicker" data-target="#txtFechaReservaC4" name="txtFechaReservaC4">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="txthorarioInicioC4" class="col-sm-2 col-form-label">Hora inicio:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC4" data-toggle="datetimepicker" data-target="#txthorarioInicioC4" name="txthorarioInicioC4">
+                </div>
+
+                <label for="txthorarioFinC4" class="col-sm-2 col-form-label">Hora fin:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioFinC4" data-toggle="datetimepicker" data-target="#txthorarioFinC4" name="txthorarioFinC4">
+                </div>
+              </div>
+
+              <div class="form-group row centrarForm col-sm-5">
+                <span class="badge success pos-rlt mr-2"><b class="arrow bottom b-success pull-in"></b>Clase no. 5</span>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optCanchaAsignada5" class="col-sm-2 col-form-label">Cancha asignada:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optCanchaAsignada5" name="optCanchaAsignada5">
+                    <option value="">Seleccione...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm" id="DivReservaciones5"  style="display: none;">
+                <label class="col-sm-2 col-form-label warning p-0 text-center" style="align-self: center;">Reservaciones:</label>
+                <div class="list-group col-sm-6" id="ListaReservaciones5">
+                  <!-- Aqui ponemos las reservas del dia seleccionado -->
+                </div>
+              </div>
+              <div class="form-group row centrarForm" style="display: none;" id="divNoDisponibleClase5">
+                <span class="badge danger pos-rlt mr-2" id="nodisponibleClase5"><b class="arrow bottom b-danger pull-in"></b></span>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtFechaReservaC5" class="col-sm-2 col-form-label">Fecha reserva:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtFechaReservaC5" data-toggle="datetimepicker" data-target="#txtFechaReservaC5" name="txtFechaReservaC5">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="txthorarioInicioC5" class="col-sm-2 col-form-label">Hora inicio:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC5" data-toggle="datetimepicker" data-target="#txthorarioInicioC5" name="txthorarioInicioC5">
+                </div>
+
+                <label for="txthorarioFinC5" class="col-sm-2 col-form-label">Hora fin:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioFinC5" data-toggle="datetimepicker" data-target="#txthorarioFinC5" name="txthorarioFinC5">
+                </div>
+              </div>
+
+              <div class="form-group row centrarForm col-sm-5">
+                <span class="badge success pos-rlt mr-2"><b class="arrow bottom b-success pull-in"></b>Clase no. 6</span>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optCanchaAsignada6" class="col-sm-2 col-form-label">Cancha asignada:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optCanchaAsignada6" name="optCanchaAsignada6">
+                    <option value="">Seleccione...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm" id="DivReservaciones6"  style="display: none;">
+                <label class="col-sm-2 col-form-label warning p-0 text-center" style="align-self: center;">Reservaciones:</label>
+                <div class="list-group col-sm-6" id="ListaReservaciones6">
+                  <!-- Aqui ponemos las reservas del dia seleccionado -->
+                </div>
+              </div>
+              <div class="form-group row centrarForm" style="display: none;" id="divNoDisponibleClase6">
+                <span class="badge danger pos-rlt mr-2" id="nodisponibleClase6"><b class="arrow bottom b-danger pull-in"></b></span>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtFechaReservaC6" class="col-sm-2 col-form-label">Fecha reserva:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtFechaReservaC6" data-toggle="datetimepicker" data-target="#txtFechaReservaC6" name="txtFechaReservaC6">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="txthorarioInicioC6" class="col-sm-2 col-form-label">Hora inicio:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC6" data-toggle="datetimepicker" data-target="#txthorarioInicioC6" name="txthorarioInicioC6">
+                </div>
+
+                <label for="txthorarioFinC6" class="col-sm-2 col-form-label">Hora fin:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioFinC6" data-toggle="datetimepicker" data-target="#txthorarioFinC6" name="txthorarioFinC6">
+                </div>
+              </div>
+
+              <div class="form-group row centrarForm col-sm-5">
+                <span class="badge success pos-rlt mr-2"><b class="arrow bottom b-success pull-in"></b>Clase no. 7</span>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optCanchaAsignada7" class="col-sm-2 col-form-label">Cancha asignada:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optCanchaAsignada7" name="optCanchaAsignada7">
+                    <option value="">Seleccione...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm" id="DivReservaciones7"  style="display: none;">
+                <label class="col-sm-2 col-form-label warning p-0 text-center" style="align-self: center;">Reservaciones:</label>
+                <div class="list-group col-sm-6" id="ListaReservaciones7">
+                  <!-- Aqui ponemos las reservas del dia seleccionado -->
+                </div>
+              </div>
+              <div class="form-group row centrarForm" style="display: none;" id="divNoDisponibleClase7">
+                <span class="badge danger pos-rlt mr-2" id="nodisponibleClase7"><b class="arrow bottom b-danger pull-in"></b></span>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtFechaReservaC7" class="col-sm-2 col-form-label">Fecha reserva:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtFechaReservaC7" data-toggle="datetimepicker" data-target="#txtFechaReservaC7" name="txtFechaReservaC7">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="txthorarioInicioC7" class="col-sm-2 col-form-label">Hora inicio:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC7" data-toggle="datetimepicker" data-target="#txthorarioInicioC7" name="txthorarioInicioC7">
+                </div>
+
+                <label for="txthorarioFinC7" class="col-sm-2 col-form-label">Hora fin:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioFinC7" data-toggle="datetimepicker" data-target="#txthorarioFinC7" name="txthorarioFinC7">
+                </div>
+              </div>
+
+              <div class="form-group row centrarForm col-sm-5">
+                <span class="badge success pos-rlt mr-2"><b class="arrow bottom b-success pull-in"></b>Clase no. 8</span>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="optCanchaAsignada8" class="col-sm-2 col-form-label">Cancha asignada:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="optCanchaAsignada8" name="optCanchaAsignada8">
+                    <option value="">Seleccione...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row centrarForm" id="DivReservaciones8"  style="display: none;">
+                <label class="col-sm-2 col-form-label warning p-0 text-center" style="align-self: center;">Reservaciones:</label>
+                <div class="list-group col-sm-6" id="ListaReservaciones8">
+                  <!-- Aqui ponemos las reservas del dia seleccionado -->
+                </div>
+              </div>
+              <div class="form-group row centrarForm" style="display: none;" id="divNoDisponibleClase8">
+                <span class="badge danger pos-rlt mr-2" id="nodisponibleClase8"><b class="arrow bottom b-danger pull-in"></b></span>
+              </div>
+              <div class="form-group row centrarForm" data-plugin="datetimepicker">
+                <label for="txtFechaReservaC8" class="col-sm-2 col-form-label">Fecha reserva:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker-input js-datetimepicker" id="txtFechaReservaC8" data-toggle="datetimepicker" data-target="#txtFechaReservaC8" name="txtFechaReservaC8">
+                </div>
+              </div>
+              <div class="form-group row centrarForm">
+                <label for="txthorarioInicioC8" class="col-sm-2 col-form-label">Hora inicio:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioInicioC8" data-toggle="datetimepicker" data-target="#txthorarioInicioC8" name="txthorarioInicioC8">
+                </div>
+
+                <label for="txthorarioFinC8" class="col-sm-2 col-form-label">Hora fin:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control datetimepicker-input" id="txthorarioFinC8" data-toggle="datetimepicker" data-target="#txthorarioFinC8" name="txthorarioFinC8">
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="form-group row ">
+            <div class="col-sm-10 d-flex justify-content-end">
+              <div class="col-sm-4">
+                <div class="box-header indigo">
+                  <h3>Precio renta</h3>
+                </div>
+                <div class="box-body light lt text-center form-inline">
+                  <p class="m-0 text-muted" style="font-size:20px">$</p><p class="m-0 text-muted" id="txtPrecioFinalTipoServicio" name="txtPrecioFinalTipoServicio" style="font-size: 20px"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="centrarForm row">
+            <button type="submit" class="btn primary col-sm-8" style="text-align: center;">Agendar</button>  
+          </div>
+            
+            <input type="hidden" value="0" id="idReg" name="idReg">
+          </form>
+          
+          <div>
+            <input type="hidden" id="txtprecioCancha">
+            <input type="hidden" id="txtdosPersonas">
+            <input type="hidden" id="txttresPersonas">
+            <input type="hidden" id="txtcuatroPersonas">
+            
+            <br>
+            <!-- <input type="text" id="txtPrecioFinalTipoServicio"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery -->
+  <!-- <script src="../libs/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+  <!-- <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- core -->
+  <!-- <script src="../libs/pace-progress/pace.min.js"></script>-->
+  <!-- <script src="../libs/pjax/pjax.js"></script> -->
+
+  <!-- <script src="scripts/lazyload.config.js"></script> -->
+  <!-- <script src="scripts/lazyload.js"></script> -->
+  <!-- <script src="scripts/plugin.js"></script>  -->
+  <!-- <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script> -->
+  <!-- <script src="scripts/ajax.js"></script> -->
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<!-- <script src="libs/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css"></script>
+<script src="libs/moment/min/moment-with-locales.min.js"></script>
+<script src="libs/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="scripts/plugins/datetimepicker.js"></script> 
+
+<script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"></script> -->
+
+
+<script src="scripts/js/admin_nuevaAgenda.js"></script>
+<script src="scripts/js/admin_nuevoProfesor.js"></script>
+<script src="scripts/js/admin_nuevoServicio.js"></script>
+<script src="./scripts/js/ver_horario_agenda.js"></script>
+
+<script type="text/javascript">
+  
+  
+
+</script>

@@ -1,0 +1,311 @@
+<style type="text/css">
+	.centrarForm{
+	  justify-content: center;
+	}
+  </style>
+
+<div id="modalEliminarRegistro" class="modal fade" data-backdrop="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title text-center text-align center">INGRESAR CONTRASEÑA</h2>
+        </div>
+        <div class="modal-body p-lg">
+          
+	        <div class="form-group row centrarForm">
+	       
+            <div class="col-sm-7">
+              <input type="password" class="form-control" id="txtClave" placeholder="* * * *" name="txtClave" style="border-inline-end: inherit; border-inline-start: inherit; border-top-style: hidden; font-size: xx-large; text-align: center;" maxlength="4" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn success p-x-md" id="btnEliminarRegistro">Elimnar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<!--modal para modificar  transaccion-->
+  <div id="modaModificarTrans" class="modal fade" data-backdrop="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title text-center text-align center blue">INGRESAR CONTRASEÑA PARA MODIFICAR</h2>
+        </div>
+        <div class="modal-body p-lg">
+          
+	        <div class="form-group row centrarForm">
+	       
+            <div class="col-sm-7">
+              <input type="password" class="form-control" id="txtClave1" placeholder="* * * *" name="txtClave1" style="border-inline-end: inherit; border-inline-start: inherit; border-top-style: hidden; font-size: xx-large; text-align: center;" maxlength="4" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn blue p-x-md" id="btnModificar">Modificar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--FIN DE MODAL-->
+
+    <!--modal para campos de modifación de trasnsaccion-->
+	<div id="modalModificaTrans" class="modal fade" data-backdrop="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="box">
+				<div class="box-header blue-grey">
+				  <h2>Modificar transaccion</h2>
+				  <small>Rellena los campos</small>
+				</div>
+				<div class="box-divider m-0"></div>
+				<div class="box-body">
+				  <form id="frmTransCajaModifica" name="frmTransCajaModifica">
+					<div class="form-group row centrarForm">
+						<label for="txtTrans" class="col-sm-2 col-form-label">Id:</label>
+						<div class="col-sm-6">
+						  <input type="text" class="form-control" id="txtId" placeholder="Id" name="txtTrans" autocomplete="off" required  disabled="disabled">
+						</div>
+					</div>
+						<div class="form-group row centrarForm">
+							<label for="txtTrans1" class="col-sm-2 col-form-label">Descripción:</label>
+							<div class="col-sm-6">
+							  <input type="text" class="form-control" id="txtTrans1" placeholder="descripción" name="txtTrans1" autocomplete="off" required>
+							</div>
+						</div>
+						<div class="form-group row centrarForm">
+							<label for="TipoTrans" class="col-sm-2 col-form-label">Tipo:</label>
+							<div class="col-sm-6">
+							  <select class="form-control" id="TipoTrans" name="TipoTrans" required>
+								<option value="">Seleccione...</option>
+								<option value="1">Entrada</option>
+								<option value="2">Salida</option>
+							  </select>
+							</div>
+						</div>
+						<div class="form-group row centrarForm">
+						  <label for="clasTrans" class="col-sm-2 col-form-label">Clasificación:</label>
+						  <div class="col-sm-6">
+							<select class="form-control" id="clasTrans" name="clasTrans" required>
+							  <option value="">Seleccione...</option>
+							  <option value="1">Pago de servicio</option>
+							  <option value="2">Pago parcial</option>
+							  <option value="3">Pago adelantado</option>
+							  <option value="4">Venta</option>
+							  <option value="5">Otro</option>
+							</select>
+						  </div>
+					  </div>
+		
+						<div class="form-group row centrarForm" data-plugin="datetimepicker">
+							  <label for="txtFechatrans" class="col-sm-2 col-form-label">Fecha:</label>
+							  <div class="col-sm-6">
+								<input type="text" class="form-control datetimepicker-input js-datetimepicker" data-toggle="datetimepicker" data-target="#txtFechatrans" id="txtFechatrans"  name="txtFechatrans" autocomplete="off" required>
+							  </div>
+						</div>
+						<div class="form-group row centrarForm">
+							<label for="txtResponsable" class="col-sm-2 col-form-label">Resalizó</label>
+							<div class="col-sm-6">
+							  <input type="text" class="form-control" id="txtResponsable" placeholder="Responsable" name="txtResponsable" required>
+							</div>
+						</div>
+						<div class="form-group row centrarForm">
+						  <label for="txtCantidad" class="col-sm-2 col-form-label">Cantidad:</label>
+						  <div class="col-sm-6">
+							<input type="text" class="form-control" id="txtCantidad"  placeholder="$0.00" name="txtCantidad" required>
+						  </div>
+						</div>
+						<div class="centrarForm row">
+						  <a href="javascript:ver('admin_Caja','content')" class="md-btn md-raised mb-2 white" style="text-align: center;" data-dismiss="modal">Cancelar</a>
+						</div>
+						<div class="centrarForm row">
+						  <button type="submit" id="btnModifica" class="md-btn md-raised mb-2 indigo" style="text-align: center;">Modificar</button>
+						</div>
+		
+				  </form>
+				 </div>
+			  </div>
+		  </div>
+		</div>
+	  </div>
+	
+	  <!--FIN DE MODAL-->
+
+
+
+
+<div class="padding">
+	<div class="row">
+		<div class="col-sm-6 col-lg-3">
+			<div class="box list-item">
+			  <span class="avatar w-40 text-center rounded warning">
+				<span class="fa fa-dollar"></span>
+			  </span>
+			  <div class="list-body">
+				<h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Monto al corte en caja:</span></a></h4>
+				<small class="text-muted" id="CorteAnterior">En espera de consulta</small>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-lg-3">
+			<div class="box list-item">
+			  <span class="avatar w-40 text-center rounded success">
+				<span class="fa fa-money"></span>
+			  </span>
+			  <div class="list-body">
+				<h4 class="m-0 text-md"><a href="#"> <span class="text-sm">Monto en caja en consulta:</span></a></h4>
+				<small class="text-muted" id="EstCaja">En espera de consulta</small>
+			  </div>
+			</div>
+		  </div>
+	</div>
+	
+
+	<div class="table-responsive">
+		<div class="row">
+			<div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+				<div class="box">
+					
+					<div class="row box-header dark" style="margin: auto;">
+					<h2 class="col-sm-8">Resumen de Control de Caja</h2>
+					</div>
+					<br>
+
+			      <div class="form-inline centrarForm" data-plugin="datetimepicker">
+	                <label  class="col-sm-12 col-md-12 col-lg-2 col-form-label">Consulte por Fechas:</label>
+	                <div class="col-sm-2">
+	                  <input type="date" class="form-control" id="date_from" name="date_from" placeholder="De:" autocomplete="off">
+	                </div>
+	                <div class="col-sm-2">
+	                	<input type="date" class="form-control" id="date_to" name="date_to" placeholder="A:" autocomplete="off">
+	                </div> 
+					    <div class="col-sm-12 col-md-12 col-lg-2">
+	                	<button class='md-btn md-raised blue buscarAdmin'><i class='fa fa-search'></i></button>
+	                </div>
+					<div class="col-sm-12 col-md-12 col-lg-2">
+	                	<a href="javascript:ver('admin_Resumen_caja','content')" class="md-btn md-raised mb-2 w-xs white">Limpiar</a>	
+	                </div>
+				   </div>
+								
+								  
+				</div><!--Termina tabla-->
+
+			    <br>
+				<!-- <div class="box-divider"></div> -->
+				
+				<div class="box-body">
+					<div class="box-header grey">
+						<h3>Resumen de Caja</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblResCaja" data-plugin="buscarAdmin">
+		            <thead>
+		             	 <tr>
+							<td>Concepto</td>
+							<td>Total de Entrada</td>
+							<td>Total de Salida</td>
+							<td>Balance en caja</td>
+						</tr>
+		            			</thead>
+		           			 	<tbody></tbody>
+		         			 </table>
+		        		</div>
+					</div>
+				</div>
+
+				<div class="box-body">
+					<div class="box-header green">
+						<h3>Resumen de Transacciones</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-bordered v-middle p-0 m-0 box" id="tblTransCaja" data-plugin="buscarAdmin">
+		            <thead>
+		             	 <tr>
+							<td>Concepto</td>
+							<td>Pago de servicios</td>
+							<td>Pago parciales</td>
+							<td>Pagos adelantados</td>
+							<td>Ventas</td>
+							<td>Otros</td>
+						</tr>
+		            			</thead>
+		           			 	<tbody></tbody>
+		         			 </table>
+		        		</div>
+					</div>
+				</div>
+				<!--coloco una nueva tabla para nuevo resumen de clases grupales y particulres !-->
+				<div class="box-body">
+					<div class="box-header accent">
+						<h3>Historial</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+					<table class="table table-bordered v-middle p-0 m-0 box" id="tblHistCaja" data-plugin="buscarAdmin">
+		        	    <thead>
+							<tr>
+								<td>Id</td>
+								<td>Descripcion</td>
+								<td>Tipo</td>
+								<td>Clasificacion</td>
+								<td>Fecha realizada</td>
+								<td>Responsable</td>
+								<td>Cantidad</td>
+								<td>Acción</td>
+								
+		           			 </tr>
+		           	 </thead>
+		            <tbody></tbody>
+		         	 </table>
+		        		</div>
+					</div>
+				</div>
+
+	
+
+
+			
+		
+			</div> 
+		</div>
+	</div>
+</div>
+
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+
+  <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<!-- jQuery -->
+  <!-- <script src="../libs/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+ <!--  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- core -->
+  <!-- <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script> -->
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/js/admin_ResumenCaja.js"></script>
+
+
+<script type="text/javascript"></script>

@@ -1,0 +1,100 @@
+<style type="text/css">
+  .centrarForm{
+    justify-content: center;
+  }
+</style>
+
+<div class="padding">
+	<div class="table-responsive">
+	<div class="row">
+		<div class="col-sm-12 col-md-12" style="margin: 0 auto;">
+			<div class="box">
+				<div class="row box-header primary" style="margin: auto;">
+					<h2 class="col-sm-8">Listado de ingresos</h2>
+					<!-- <button class="btn btn-fw warning col-sm-4 col-md-4" id="btnNuevaIncidencia">Nueva incidencia</button -->
+				</div>
+	<br>
+		<div class="row pl-3">
+			<div class="col-8 ">
+				<div class="form-inline centrarForm" data-plugin="datetimepicker">
+					<label  class="col-sm-2 col-form-label">Periodo:</label>
+					<div class="col-sm-3">
+						<input type="date" class="form-control" id="date_from"  name="date_from" placeholder="De:" autocomplete="off">
+					</div>
+					<div class="col-sm-3">
+						<input type="date"class="form-control" id="date_to"  name="date_to" placeholder="A:" autocomplete="off">
+					</div>
+					<div class="col-sm-2">
+						<button class='md-btn md-raised blue buscar'><i class='fa fa-search'></i></button>
+					</div>
+				</div>	
+			</div>
+
+			<div class="col-3 pl-3" style="display: inline-block; background-color: antiquewhite; font-weight: bold; text-align: center;">
+				<label class="pt-2">Saldo:</label>
+				<label id="lblSaldoIngresos"> 0.00</label>
+			</div>
+			
+		</div>
+
+			
+
+			<br>
+			<!--	<div class="box-divider"></div>-->
+				<div class="box-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table v-middle p-0 m-0 box" id="tblIngresos" data-plugin="admin_Ingresos">
+		            <thead>
+		              <tr>
+		                <td>id</td>
+										<td>Fecha</td>
+		                <td>Concepto</td>
+		                <td>Descripcion</td>
+		                <td>Tipo de venta</td>
+		                <td>Cliente</td>
+		                <td>Realizó</td>
+		                <td>Costos unitario</td>
+		                <td>Cantidad total</td>
+										<td>Ingreso total</td>
+										<td>Acción</td>
+		               <!--  <td></td> -->
+		              </tr>
+		            </thead>
+		            <tbody></tbody>
+		          </table>
+		        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+	<script src="../libs/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="../libs/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+	<script src="../libs/datatables.net-bs4/css/dataTables.bootstrap4.css"></script>
+
+  <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+<!-- jQuery -->
+  <!-- <script src="../libs/jquery/dist/jquery.min.js"></script> -->
+<!-- Bootstrap -->
+ <!--  <script src="../libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+<!-- core -->
+  <!-- <script src="../libs/pace-progress/pace.min.js"></script>
+  <script src="../libs/pjax/pjax.js"></script>
+
+  <script src="scripts/lazyload.config.js"></script>
+  <script src="scripts/lazyload.js"></script>
+  <script src="scripts/plugin.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/scrollto.js"></script>
+  <script src="scripts/toggleclass.js"></script>
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/ajax.js"></script>-->
+  <script src="scripts/app.js"></script>
+<!-- endbuild -->
+-->
+<script src="scripts/js/admin_listadoIngresos.js"></script>
